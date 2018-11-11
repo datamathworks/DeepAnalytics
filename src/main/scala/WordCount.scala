@@ -5,6 +5,7 @@ object WordCount {
       val conf = new SparkConf().setAppName("Word Count").setMaster("local")
       val sc = new SparkContext(conf);
 
+      // reading the file and creating an rdd of rows
       val inputFile = sc.textFile("data/macbeth.txt")
                         /* sample output:
                             Actus
