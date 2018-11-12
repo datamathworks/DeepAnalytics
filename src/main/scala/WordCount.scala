@@ -29,7 +29,7 @@ object WordCount {
                             (scoena,1)
                             (prima,1)
                             (thunder,1) */
-                       .map(word => (word, 1))
+                        .map(word => (word, 1))
 
                         /* sample output:
                             (masking,1)
@@ -37,14 +37,18 @@ object WordCount {
                             (battlements,2)
                             (doo't,2)
                             (oppos'd,1) */
-                       .reduceByKey(_ + _)
+                        .reduceByKey(_ + _)
                         /* sample output:
                             (1,masking)
                             (2,fantasticall)
                             (2,battlements)
                             (2,doo't)
                             (1,oppos'd)*/
-                       .map{case(word, count) => (count,word)}
+    //count number of distinct words
+    println("This file contains " + inputFile.count() + " total words")
+    println(" ")
+
+    inputFile.map{case(word, count) => (count,word)}
                        /* sample output:
                            (644,the)
                            (544,and)
@@ -66,7 +70,7 @@ object WordCount {
                           (of,336,2)
                           (i,330,1)*/
                        .map{case(word,count) => (word,count,word.length)}
-                       .collect() take 20 foreach println;
+                       .collect() take 20 foreach println
 
 
   }
